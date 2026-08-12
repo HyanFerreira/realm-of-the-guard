@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "realmguard",
+	"version": "${version}",
+	"name": "Realm of the Guard",
+	"description": "Transform vanilla villages into governed realms through buildings, legitimacy, military hierarchy and royal progression.",
+	"authors": [
+		"Hyan Ferreira (hfstack)"
+	],
+	"contact": {
+		"homepage": "https://github.com/HyanFerreira/realm-of-the-guard",
+		"issues": "https://github.com/HyanFerreira/realm-of-the-guard/issues",
+		"sources": "https://github.com/HyanFerreira/realm-of-the-guard"
+	},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.hfstack.realmguard.RealmOfTheGuard"
+		],
+		"client": [
+			"net.hfstack.realmguard.client.RealmOfTheGuardClient"
+		],
+		"fabric-datagen": [
+			"net.hfstack.realmguard.datagen.RealmOfTheGuardDataGenerator"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=1.21.11 <1.21.12",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"rallyguard": ">=1.3.0",
+		"guardvillagers": "*"
+	}
+}
