@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "GBG",
+    "IGI"
+  ],
+  "key": {
+    "I": "minecraft:iron_nugget",
+    "G": "minecraft:gold_nugget",
+    "B": "minecraft:book"
+  },
+  "result": {
+    "id": "realmguard:domain_ledger",
+    "count": 1
+  }
+}
