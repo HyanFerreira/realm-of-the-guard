@@ -29,10 +29,8 @@
 		"fabricloader": ">=0.19.3",
 		"minecraft": ">=1.21.11 <1.21.12",
 		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
+		"fabric-api": "*",
 		"rallyguard": ">=1.3.0",
-		"guardvillagers": "*"
+		"guardvillagers": ">=2.1.2-1.21.11"
 	}
 }

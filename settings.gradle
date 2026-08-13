@@ -10,3 +10,8 @@ pluginManagement {
 }
 
 rootProject.name = 'realm-of-the-guard'
+
+def rallyProjectDirectory = file('../rally-of-the-guard')
+if (new File(rallyProjectDirectory, 'settings.gradle').isFile()) {
+	includeBuild(rallyProjectDirectory)
+}
