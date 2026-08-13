@@ -95,6 +95,18 @@ Goal: establish a clean technical base before gameplay data becomes expensive to
 - Rally works unchanged when Realm is absent.
 - No Realm class is referenced from Rally.
 
+### Implementation status
+
+- [x] Common/client source sets, versioned required dependencies and reproducible sibling Rally resolution.
+- [x] Persistent Fabric Data Attachment prototype with explicit schema versions and migration defaults.
+- [x] Rally command service plus recruitment `BEFORE` and `AFTER` events.
+- [x] Public Rally API documentation and unit/contract tests.
+- [x] Dedicated development server boot with Realm, Rally and Guard Villagers loaded together.
+- [x] One-way dependency boundary: Realm imports Rally's public API and Rally has no Realm references.
+- [ ] Rally tactical-order events.
+- [ ] Structured eligibility callbacks and read-only presentation provider.
+- [ ] Realm networking conventions and GameTest coverage; current coverage is unit/contract testing.
+
 ## Phase 1 — Settlement charter and Protector loop
 
 Goal: let the player turn a vanilla village into a named, persistent settlement.
@@ -131,6 +143,32 @@ Goal: let the player turn a vanilla village into a named, persistent settlement.
 - Two settlements can exist in one dimension without sharing data.
 - Membership and management are validated on the server.
 - Destroyed or moved anchors produce a recoverable state instead of data loss.
+
+### Implementation status
+
+#### Complete in the current developer build
+
+- [x] Domain Ledger item, recipe, model, translations and creative inventory entry.
+- [x] Bell-anchored, two-step registration with a live preview and 30-second confirmation window.
+- [x] Live counts for villagers, beds, workstations and Guard Villagers guards within 32 blocks.
+- [x] Versioned per-dimension persistence with migration from the initial settlement schema.
+- [x] Multiple settlements with unique anchors and a minimum 64-block separation.
+- [x] Ruler-authorized renaming, legitimacy changes and administrative ownership recovery.
+- [x] Protector title, center, population, guards, ruler and legitimacy displayed in the settlement summary.
+- [x] Legitimacy changes for local raider kills, Rally guard recruitment and harming or killing residents.
+- [x] Missing bell state is recoverable without deleting settlement data; replacing it at the same position restores the anchor.
+- [x] Stable `RealmTester` development identity prevents ownership changes between `runClient` sessions.
+
+#### Partial or pending
+
+- [ ] **Partial:** naming is supported through `/realm settlement rename`; the dedicated naming screen is pending.
+- [ ] **Partial:** server-side ruler authorization exists, but persistent resident/guard membership is not modeled yet.
+- [ ] **Partial:** destroyed anchors retain data, but reassignment to a moved bell is pending.
+- [ ] **Partial:** legitimacy is persistent and event-driven, but it does not yet store a history or per-source cooldowns.
+- [ ] Positive standing and a completed protection achievement before registration.
+- [ ] Trading, raid-victory, zombie-villager curing, requests and donation legitimacy sources.
+- [ ] Treasury theft, taxation and failed-crisis legitimacy losses from later systems.
+- [ ] Automatic assignment and persistence of residents and guards to a settlement.
 
 ## Phase 2 — Domain Ledger and recognized buildings
 
@@ -442,12 +480,12 @@ The first Phase 1 developer slice is implemented for playtesting:
 - ruler-owned settlement naming and renaming;
 - two-step registration preview and confirmation through the Domain Ledger;
 - persistent Protector title and baseline legitimacy display;
-- dynamic legitimacy changes for defending residents, recruiting local guards and harming residents;
+- dynamic legitimacy changes for killing local raiders, recruiting local guards and harming residents;
 - multiple separated settlements per dimension;
 - missing bells produce a recoverable status without deleting data;
 - dedicated-server startup verified with Guard Villagers and Rally loaded together.
 
-This slice deliberately uses commands as a test harness. Standing, protection achievements, registration preview/confirmation UI and anchor reassignment remain Phase 1 work.
+This slice deliberately uses commands as a test harness. Standing, protection achievements, dedicated naming/confirmation screens, resident membership and anchor reassignment remain Phase 1 work. The checklists above are the authoritative implementation status for Phase 0 and Phase 1.
 
 ## Definition of the first complete release
 
