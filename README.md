@@ -8,7 +8,7 @@ Unlike colony simulators built around fixed blueprints and autonomous builders, 
 
 ## Project status
 
-Realm of the Guard is in pre-alpha planning and foundation work. Version `0.1.0` establishes the Fabric project and its technical direction; gameplay systems have not been implemented yet.
+Realm of the Guard is in pre-alpha foundation work. Version `0.1.0` now includes a developer-playable settlement slice: the Domain Ledger can register bell-anchored settlements, inspect nearby village infrastructure and persist records across restarts.
 
 Target platform:
 
@@ -24,7 +24,7 @@ Planned ecosystem:
 - [Rally of the Guard](https://github.com/HyanFerreira/rally-of-the-guard) provides guard ownership and tactical commands.
 - Realm of the Guard provides settlements, buildings, legitimacy, government, economy, military hierarchy and royal progression.
 
-The integration dependencies remain optional in metadata during foundation work. They will become required once the public Rally integration API is implemented and consumed.
+Rally of the Guard and Guard Villagers are required dependencies. During workspace development, Gradle consumes the sibling `rally-of-the-guard` checkout as a composite build, so Realm always compiles against the current public Rally API.
 
 ## Design pillars
 
@@ -39,6 +39,7 @@ The integration dependencies remain optional in metadata during foundation work.
 
 - [Product and development roadmap](docs/ROADMAP.md)
 - [Architecture and inter-mod integration](docs/ARCHITECTURE.md)
+- [Foundation playtest guide](docs/PLAYTEST.md)
 
 ## Building
 
@@ -53,6 +54,8 @@ On Windows:
 ```
 
 Generated artifacts are placed in `build/libs`.
+
+Development builds expect `realm-of-the-guard` and `rally-of-the-guard` to be sibling directories. Rally is substituted into Realm through Gradle's composite-build support using the stable coordinate `net.hfstack.rallyguard:rally-of-the-guard`.
 
 ## License
 

@@ -432,6 +432,23 @@ PvP territorial conquest remains out of scope until claims, offline protection, 
 | `0.7.x` | Events, prosperity and balance. |
 | `1.0.0` | Complete single-player and cooperative kingdom progression. |
 
+## Current playable foundation slice
+
+The first Phase 1 developer slice is implemented for playtesting:
+
+- persistent, schema-versioned settlement records attached to each server world;
+- bell-anchored registration through the Domain Ledger or server command;
+- live nearby counts for villagers, beds, workstations and guards;
+- ruler-owned settlement naming and renaming;
+- two-step registration preview and confirmation through the Domain Ledger;
+- persistent Protector title and baseline legitimacy display;
+- dynamic legitimacy changes for defending residents, recruiting local guards and harming residents;
+- multiple separated settlements per dimension;
+- missing bells produce a recoverable status without deleting data;
+- dedicated-server startup verified with Guard Villagers and Rally loaded together.
+
+This slice deliberately uses commands as a test harness. Standing, protection achievements, registration preview/confirmation UI and anchor reassignment remain Phase 1 work.
+
 ## Definition of the first complete release
 
 Version 1.0 is ready when a player can:

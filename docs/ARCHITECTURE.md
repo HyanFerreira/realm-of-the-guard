@@ -1,6 +1,6 @@
 # Architecture and Integration
 
-This document defines the intended technical boundaries of Realm of the Guard and its communication with Rally of the Guard and Guard Villagers. Names shown for future APIs are design contracts, not implemented classes yet.
+This document defines the intended technical boundaries of Realm of the Guard and its communication with Rally of the Guard and Guard Villagers. Phase 0 now implements the first version of the Rally API for basic guard commands and recruitment events; names for later systems remain design contracts until implemented.
 
 ## 1. Dependency direction
 
@@ -16,7 +16,7 @@ Realm of the Guard
 
 Realm may call public Rally APIs. Rally must never import Realm classes or contain concepts such as kingdoms, buildings, taxes or royal titles. This prevents a circular dependency and keeps Rally usable as a lightweight standalone mod.
 
-During foundation work, `fabric.mod.json` lists Rally and Guard Villagers as suggested integrations so the empty project can build and start independently. When Phase 0 delivers the Rally API and Realm begins importing it, both entries must move to required dependencies with explicit minimum versions.
+Realm now imports the Phase 0 Rally API, so `fabric.mod.json` declares Rally and Guard Villagers as required dependencies with explicit minimum versions. Workspace builds resolve Rally from the sibling checkout through Gradle composite-build substitution.
 
 ## 2. Responsibility boundaries
 
